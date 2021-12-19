@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "579938557416",
+    "project_id": "mata3m-7e2be",
+    "storage_bucket": "mata3m-7e2be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579938557416:android:86402a5d7f6a0cdf60d85d",
+        "android_client_info": {
+          "package_name": "com.example.mata3m"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579938557416-oiadf8bc37pr42hieinai0qqsvrhl11r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgkUsBS5CHsfsLN1omFAozSy5fptwpSbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579938557416-oiadf8bc37pr42hieinai0qqsvrhl11r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
