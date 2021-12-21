@@ -36,7 +36,7 @@ class _FavoriteScreen extends State<FavoriteScreen> {
         appBar: const AppBarWidget(
           color: kWhiteColor, hasBackButton: false, title: "Favorite",),
         backgroundColor: kDarkWhiteColor,
-        body: controller.loaded? LoadingWidget():controller.noDataToShow?Center(
+        body: controller.loading? LoadingWidget():controller.noDataToShow?Center(
             child: Container(
 
               height: Get.height * 0.3,

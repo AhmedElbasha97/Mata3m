@@ -5,32 +5,25 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mata3m/Services/auth_services.dart';
-import 'package:mata3m/screens/HomeScreen/home_screen.dart';
 import 'package:mata3m/screens/signupScreen/signup_helper.dart';
 
 
 const wrongCode = 'assets/images/wrong_code.png';
 
 class SignupController extends GetxController {
+
   final _validatorHelber = SignupHelper.instance;
   final AuthService sinning = new AuthService(FirebaseAuth.instance);
-
   RxBool _visiblePsd = false.obs;
-
-  //fixme make it false
-
-
-
   RxBool _isEnableSignup = false.obs;
-
   RxBool _isAcceptTerms = false.obs;
+
 
   bool get isAcceptTerms => _isAcceptTerms.value;
 
   void toggleCheckbox() {
     _isAcceptTerms.value = !_isAcceptTerms.value;
   }
-
   bool get isEnableSignup => _isEnableSignup.value;
   bool get visiblePsd => _visiblePsd.value;
 
@@ -76,7 +69,6 @@ class SignupController extends GetxController {
 
   void clear() {
     passwordController.clear();
-    // phoneController.clear();
     nameController.clear();
     emailController.clear();
   }
@@ -150,7 +142,7 @@ class SignupController extends GetxController {
     if(nameState){
     if(passState){
     if(emailState){
-  sinning.signUpEmail(email: emailController.text,password: passwordController.text,context: context,username: nameController.text,confirmpassword: passwordController.text);
+  sinning.signUpWithEmailandPassword(email: emailController.text,password: passwordController.text,context: context,username: nameController.text,confirmpassword: passwordController.text);
   }}}
   }
   @override

@@ -113,7 +113,7 @@ class LoginController extends GetxController {
 
       if(passState){
         if(emailState){
-          sinning.signInEmail(context,emailController.text,passwordController.text);
+          sinning.signInWithEmailAndPassword(context,emailController.text,passwordController.text);
           }}
   }
   @override

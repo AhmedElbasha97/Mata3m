@@ -13,49 +13,6 @@ class RestrauntCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final list = [
-      Text(
-        restraunt.name,
-        style: theme.textTheme.subtitle1,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-      ),
-      const SizedBox(
-        height: 4,
-      ),
-      Text(
-        restraunt.phoneNumber,
-        style: theme.textTheme.caption,
-      ),
-      const SizedBox(
-        height: 8,
-      ),
-      Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          RatingBarIndicator(
-            rating: double.parse(restraunt.rate),
-            physics: const BouncingScrollPhysics(),
-            unratedColor: Colors.grey,
-            itemBuilder: (context, index) => Icon(
-              index < double.parse(restraunt.rate)? Icons.star : Icons.star_border,
-              color: Colors.amber,
-            ),
-            itemCount: 5,
-            itemSize: 15.0,
-            direction: Axis.horizontal,
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            restraunt.rate,
-            textAlign: TextAlign.left,
-            style: theme.textTheme.caption,
-          ),
-        ],
-      ),
-    ];
     return GestureDetector(
       onTap: (){ ComingFromFav?Get.off(DetailedScreen(Restraunt: restraunt, comeFromFavorite: ComingFromFav,)):Get.to(DetailedScreen(Restraunt: restraunt, comeFromFavorite: ComingFromFav,));},
       child: Padding(
@@ -90,7 +47,47 @@ class RestrauntCell extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ...list,
+                        Text(
+                        restraunt.name,
+                        style: theme.textTheme.subtitle1,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        restraunt.phoneNumber,
+                        style: theme.textTheme.caption,
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          RatingBarIndicator(
+                            rating: double.parse(restraunt.rate),
+                            physics: const BouncingScrollPhysics(),
+                            unratedColor: Colors.grey,
+                            itemBuilder: (context, index) => Icon(
+                              index < double.parse(restraunt.rate)? Icons.star : Icons.star_border,
+                              color: Colors.amber,
+                            ),
+                            itemCount: 5,
+                            itemSize: 15.0,
+                            direction: Axis.horizontal,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            restraunt.rate,
+                            textAlign: TextAlign.left,
+                            style: theme.textTheme.caption,
+                          ),
+                        ],
+                      ),
                           const SizedBox(
                             height: 8,
                           ),

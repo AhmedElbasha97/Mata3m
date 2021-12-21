@@ -25,7 +25,6 @@ class _startScreenState extends State<startScreen> {
         RoundedCornerButton(borderRadius: 25.0,title: "Sign In",hasBorder: true,height: 48,width: 200,backgroundColor: kWhiteColor,onPressed: (){Get.to(LoginScreen());},textColor: kPrimaryColor,),
         SizedBox(height: 20,),
         RoundedCornerButton(borderRadius: 25.0,title: "Sign Up",hasBorder: true,height: 48,width: 200,backgroundColor: kPrimaryColor,onPressed: (){Get.to(SignupScreen());},textColor: kWhiteColor,),
-
   ],
       ),
     ),

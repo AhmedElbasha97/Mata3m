@@ -13,13 +13,10 @@ class introController extends GetxController{
     super.onInit();
   }
   Future checkFirstSeen() async {
-    sinning.getCurrentUser().then((user) async {
+    sinning.thereIsUserForThisDevice().then((user) async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       bool CheckValue = await prefs.containsKey('userid');
       var connectivityResult = await (Connectivity().checkConnectivity());
-      print("connection${connectivityResult}");
-      print(CheckValue);
-      print(CheckValue);
       if (connectivityResult == ConnectivityResult.none) {
         Get.offAndToNamed(AppRoutes.notConnected);
       } else {

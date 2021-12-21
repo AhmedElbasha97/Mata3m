@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mata3m/models/user.dart';
-import 'package:mata3m/screens/HomeScreen/home_screen.dart';
 import 'package:mata3m/utils/services/api_service.dart';
 import 'package:mata3m/utils/services/app_routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,27 +15,15 @@ class AuthService {
   //
   Stream<User?> get authStateChanges => _auth.authStateChanges();
   final ref = FirebaseDatabase.instance.reference().child("Users");
-  removeValues() async {
+
+  removeUserIdFromCach() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     //Remove String
     prefs.remove("userid");
+  }
 
-  }
-  // ignore: missing_return
-  Future<String?> getUserId() async {
-    String? id="";
-    _auth.userChanges().listen((user) {
-      if (user == null) {
-        print('User is currently signed out!');
-        id=null;
-      } else {
-        print('User is signed in id ${user.uid}!');
-        id = user.uid;
-      }
-    });
-    return id;
-  }
-  addStringToSF(id) async {
+  //Add user id
+  addUserIdToCach(id) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('userid', id);
   }
@@ -64,13 +51,13 @@ class AuthService {
     );
   }
 
-  signInEmail(context, email, password) async {
+  signInWithEmailAndPassword(context, email, password) async {
     print(email);
         try {
           UserCredential userCredential = await _auth
               .signInWithEmailAndPassword(email: email, password: password);
           final userid = userCredential.user!.uid;
-          addStringToSF(userid);
+          addUserIdToCach(userid);
           Get.offAndToNamed(
               AppRoutes.homeScreen
           );
@@ -82,32 +69,31 @@ class AuthService {
 
             return 'No user found for that email.';
           } else if (e.code == 'wrong-password') {
-            showAlert(context, 'wrong-password', "Please Reenter Your Email");
+            showAlert(context, 'wrong password', "Please Reenter Your Password");
 
             return 'Wrong password.';
           }
         }
 
   }
-  void writeData(email,userId,password,userName){
+
+  void safeUserDataToUserTable(email,userId,password,userName){
     ref.child(userId).set({
       'email':email,
       'Name':userName,
       'password':password
     });
   }
-  //register email & password
-  // ignore: missing_return
 
- signUpEmail(
+ signUpWithEmailandPassword(
       {context, email, username, confirmpassword, password, type}) async {
             try {
               UserCredential userCredential =
               await _auth.createUserWithEmailAndPassword(
                   email: email, password: password);
               final userid = userCredential.user!.uid;
-              addStringToSF(userid);
-              writeData(email, userid, password, username);
+              addUserIdToCach(userid);
+              safeUserDataToUserTable(email, userid, password, username);
               Get.offAndToNamed(
                   AppRoutes.homeScreen
               );} on FirebaseAuthException catch (e) {
@@ -137,22 +123,19 @@ class AuthService {
      var data = await api.request("/Users/${_auth.currentUser!.uid}.json", "GET");
      if (data != []) {
        Users? user ;
-       var i = 0;
-         print("${i}${data.toString()}");
          user=Users.fromJson(data);
        return user;
      }
    }
-  Future<User?> getCurrentUser() async {
-    // ignore: await_only_futures
+
+  Future<User?> thereIsUserForThisDevice() async {
     return await _auth.currentUser;
   }
 
   //signout
   void signOut() async {
     await _auth.signOut();
-    await removeValues();
+    await removeUserIdFromCach();
     Get.offAndToNamed(AppRoutes.StartScreen);
-    print('u signout');
   }
 }

@@ -5,41 +5,35 @@ import 'package:mata3m/models/fav_model.dart';
 class favoriteScreenController extends GetxController{
 
   final favoriteServices fav = new favoriteServices();
-  var loaded = false;
+  var loading = false;
   var noDataToShow = false;
-  var showedAgain = false;
   List<Favorite> favs= [];
   List<String> ids= [];
   @override
   Future<void> onInit() async {
-    checker();
+    checkIfUserHaveFavoritesOrNot();
     super.onInit();
   }
-  screenShowedAgain(){
-    showedAgain=true;
-    if(showedAgain){
-      checker();
-    }
-  }
-  checker() async {
+
+  checkIfUserHaveFavoritesOrNot() async {
     var check = await fav.checkIfThereIsFavoritesToTHisUser();
     if(check!=null){
-      getData();
+      getDataForFavoriteTable();
     }else{
-      loaded = false;
+      loading = false;
       noDataToShow = true;
       update();
     }
   }
-  getData() async {
+
+  getDataForFavoriteTable() async {
     noDataToShow = false;
-    loaded = true;
+    loading = true;
    favs =  await fav.getFavoriteData();
    print(favs);
-
-   ids = fav.getFavoriteID();
+   ids = fav.getFavoriteIDArray();
    print(ids);
-    loaded = false;
+    loading = false;
     update();
   }
 
