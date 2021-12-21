@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mata3m/screens/HomeScreen/home_screen.dart';
 import 'package:mata3m/screens/loginScreen/login_screen.dart';
 import 'package:mata3m/screens/signupScreen/signup_controller.dart';
 import 'package:mata3m/utils/colors.dart';
-import 'package:mata3m/utils/translation_key.dart';
 import 'package:mata3m/utils/utils.dart';
 import 'package:mata3m/widgets/app_bar.dart';
 import 'package:mata3m/widgets/custom_elevated_button.dart';
 import 'package:mata3m/widgets/input_field_text.dart';
-import 'package:mata3m/widgets/tab_bar.dart';
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -41,7 +37,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             "Sign Up",
                             style: extend(theme.textTheme.headline2 ?? TextStyle(),TextStyle(color: kOnSaleColor)),
                           ),
-                          SizedBox(height: 75.h),
+                          SizedBox(height: 75),
                           CustomInputfield(
                             onchange: controller.onNameupdate,
                             labelText: "Name",
@@ -57,7 +53,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                       )
                                 : null,
                           ),
-                          SizedBox(height: 8.h),
+                          SizedBox(height: 8),
 
                           CustomInputfield(
                             onchange: controller.onEmailUpdate,
@@ -74,7 +70,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                       )
                                 : null,
                           ),
-                          SizedBox(height: 8.h),
+                          SizedBox(height: 8),
                           CustomInputfield(
                               labelText: "Password",
                               controller: controller.passwordController,
@@ -94,7 +90,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   controller.toggleVisiblePsd();
                                 },
                               )),
-                          SizedBox(height: 22.h),
+                          SizedBox(height: 22),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
@@ -106,7 +102,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text("Already Have An Account"),
-                                      SizedBox(width: 4.w),
+                                      SizedBox(width: 4),
                                       Icon(
                                         Icons.arrow_right_alt_rounded,
                                         color: kPrimaryColor,
@@ -115,7 +111,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     )),
                             ],
                           ),
-                          SizedBox(height: 25.h),
+                          SizedBox(height: 25),
                           Center(
                             child: CustomElevatedButton(
                               background: kPrimaryColor,
@@ -126,7 +122,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 },
                                 text: "SIGN UP"),
                           ),
-                          SizedBox(height: 126.r),
+                          SizedBox(height: 126),
 
                         ],
                       ),

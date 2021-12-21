@@ -8,9 +8,7 @@ import 'package:mata3m/utils/utils.dart';
 import 'package:mata3m/widgets/app_bar.dart';
 import 'package:mata3m/widgets/loading_widget.dart';
 import 'package:mata3m/widgets/tab_bar.dart';
-
 import 'favorite_screen_controller.dart';
-
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({Key? key}) : super(key: key);
 

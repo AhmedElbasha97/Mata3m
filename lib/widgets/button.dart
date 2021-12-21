@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mata3m/utils/colors.dart';
 
 class RoundedCornerButton extends StatelessWidget {
@@ -36,8 +35,8 @@ class RoundedCornerButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(1.0),
       child: Container(
-        width: width.r,
-        height: height.r,
+        width: width,
+        height: height,
         decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: BorderRadius.circular(borderRadius),
@@ -58,7 +57,7 @@ class RoundedCornerButton extends StatelessWidget {
           style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius.r),
+            borderRadius: BorderRadius.circular(borderRadius),
           ))),
           child: icon != null
               ? title == ""
@@ -69,7 +68,7 @@ class RoundedCornerButton extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         icon,
-                        SizedBox(width: 9.r),
+                        SizedBox(width: 9),
                         Text(title,
                             textAlign: TextAlign.center,
                             style: theme.textTheme.button!.apply(

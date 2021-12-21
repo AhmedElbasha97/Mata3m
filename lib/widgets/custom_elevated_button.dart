@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:mata3m/utils/colors.dart';
 
 class CustomElevatedButton extends StatelessWidget {
@@ -32,7 +30,7 @@ class CustomElevatedButton extends StatelessWidget {
       style: ButtonStyle(
 
           splashFactory: InkSplash.splashFactory,
-          fixedSize: MaterialStateProperty.all(Size(width.w, height.h)),
+          fixedSize: MaterialStateProperty.all(Size(width, height)),
           backgroundColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.pressed)) {
               return kPrimaryColor;
@@ -49,7 +47,7 @@ class CustomElevatedButton extends StatelessWidget {
         children: [
           if (icon != null) icon,
           if (text != null) ...[
-            if (icon != null) SizedBox(width: 9.r),
+            if (icon != null) SizedBox(width: 9),
             if (hasTextStyle) Text(
               text,
               style: textStyle,

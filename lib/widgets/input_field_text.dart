@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomInputfield extends StatelessWidget {
   CustomInputfield(
@@ -43,13 +42,13 @@ class CustomInputfield extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         errorBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
-            borderRadius: BorderRadius.circular(4.r)),
+            borderRadius: BorderRadius.circular(4)),
         focusedErrorBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
-            borderRadius: BorderRadius.circular(4.r)),
+            borderRadius: BorderRadius.circular(4)),
         enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
-            borderRadius: BorderRadius.circular(4.r)),
+            borderRadius: BorderRadius.circular(4)),
       ),
       onChanged: onchange,
       controller: controller,

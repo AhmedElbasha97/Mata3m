@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/services.dart';
 import 'package:mata3m/screens/ForgotPasswordScreen/forgot_password_screen.dart';
 import 'package:mata3m/screens/loginScreen/login_controller.dart';
@@ -35,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                             "Sign In",
                             style: extend(theme.textTheme.headline2 ?? TextStyle(),TextStyle(color: kOnSaleColor)),
                           ),
-                          SizedBox(height: 75.h),
+                          SizedBox(height: 75),
                           CustomInputfield(
                             onchange: controller.onUpdate,
                             labelText: "Email",
@@ -51,7 +50,7 @@ class LoginScreen extends StatelessWidget {
                                       )
                                 : null,
                           ),
-                          SizedBox(height: 8.h),
+                          SizedBox(height: 8),
                           CustomInputfield(
                               labelText: "Password",
                               controller: controller.passwordController,
@@ -85,7 +84,7 @@ class LoginScreen extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text("Forget Password"),
-                                      SizedBox(width: 4.w),
+                                      SizedBox(width: 4),
                                       Icon(
                                         Icons.arrow_right_alt_rounded,
                                         color: kPrimaryColor,
@@ -94,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                                   )),
                             ],
                           ),
-                          SizedBox(height: 25.h),
+                          SizedBox(height: 25),
                           Center(
                             child: CustomElevatedButton(
                                background: kPrimaryColor,

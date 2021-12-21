@@ -1,10 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mata3m/screens/ForgotPasswordScreen/forgot_password_controller.dart';
 import 'package:mata3m/utils/colors.dart';
-import 'package:mata3m/utils/translation_key.dart';
 import 'package:mata3m/utils/utils.dart';
 import 'package:mata3m/widgets/app_bar.dart';
 import 'package:mata3m/widgets/custom_elevated_button.dart';
@@ -34,10 +32,10 @@ class ForgotPasswordScreen extends StatelessWidget {
                             "Forget Password",
                             style: extend(theme.textTheme.headline2 ?? TextStyle(),TextStyle(color: kOnSaleColor)),
                           ),
-                          SizedBox(height: 87.h),
+                          SizedBox(height: 87),
                           const Text(
                               "Please, enter your email address. You will receive a link to create a new password via email."),
-                          SizedBox(height: 18.h),
+                          SizedBox(height: 18),
                           CustomInputfield(
                             onchange: controller.onUpdate,
                             labelText: "Email",
@@ -54,7 +52,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                                       )
                                 : null,
                           ),
-                          SizedBox(height: 53.h),
+                          SizedBox(height: 53),
                           Center(
                             child: CustomElevatedButton(
                               background: kPrimaryColor,
