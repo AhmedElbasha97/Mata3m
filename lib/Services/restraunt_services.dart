@@ -4,7 +4,7 @@ import 'package:mata3m/utils/services/api_service.dart';
 
 class RestrauntService {
   static ApiService api = ApiService();
-  static Future<List<Restraunts>?> getCategories() async {
+  static Future<List<Restraunts>?> getRestrauntsData() async {
     var data = await api.request("/governments.json", "GET");
     if (data != null) {
       List<Restraunts> citys = [];

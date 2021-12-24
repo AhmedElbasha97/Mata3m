@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:mata3m/models/fav_model.dart';
 import 'package:mata3m/models/user.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
@@ -36,46 +35,46 @@ class DbHelper {
 
 
   static Database _database = Database as Database;
-
-  Future<Database> get userTableDatabase async {
+//SeeIfTableIsCreatedOnDeviceOrNot
+  Future<Database> get checkingUserTableIsCreatedInDatabase async {
     if (_database != null) return _database;
-    _database = await _initUserTableDatabase();
+    _database = await _creatingUserTableInDatabase();
     return _database;
   }
 
-  Future<Database> get resTableDatabase async {
+  Future<Database> get checkingResTableIsCreatedInDatabase async {
     if (_database != null) return _database;
-    _database = await _initResTableDatabase();
+    _database = await _creatingResTableDatabase();
     return _database;
   }
 
-  Future<Database> get favTableDatabase async {
+  Future<Database> get checkinFavTableIsCreatedDatabase async {
     if (_database != null) return _database;
-    _database = await _initFavTableDatabase();
+    _database = await _creatingFavTableDatabase();
     return _database;
   }
-
-  Future<Database> _initUserTableDatabase() async {
+  // Creating table In data base
+  Future<Database> _creatingUserTableInDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, _DATA_BASE_NAME);
     return await openDatabase(path,
         version: _DATA_BASE_VERSION, onCreate: _onCreateENT);
   }
 
-  Future<Database> _initResTableDatabase() async {
+  Future<Database> _creatingResTableDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, _DATA_BASE_NAME);
     return await openDatabase(path,
         version: _DATA_BASE_VERSION, onCreate: _onCreateRES);
   }
 
-  Future<Database> _initFavTableDatabase() async {
+  Future<Database> _creatingFavTableDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, _DATA_BASE_NAME);
     return await openDatabase(path,
         version: _DATA_BASE_VERSION, onCreate: _onCreateFav);
   }
-
+//AddObjectToDataBaseTable
   Future _onCreateENT(Database db, int version) async {
     await db.execute('''
           CREATE TABLE $_ENTTABLE (
@@ -116,18 +115,18 @@ class DbHelper {
 
    Future<int> SignUp(Users user) async {
     int result = 0;
-    final Database db = await _initUserTableDatabase();
+    final Database db = await _creatingUserTableInDatabase();
       result = await db.insert('users', user.toJson());
     return result;
   }
 
   Future<bool> signIn(String email, String password) async {
     var res = false;
-    final Database db = await _initUserTableDatabase();
+    final Database db = await _creatingUserTableInDatabase();
    var users = await db.query(_ENTTABLE);
    for(var user  in users){
     user.forEach((key, value) {
-      if (key == "email" && value == email){
+      if(key == "email" && value == email){
         if(key == "password" && value == password){
           res = true;
         }
@@ -139,29 +138,29 @@ class DbHelper {
   }
 
   logOut (int id) async {
-    final Database db = await _initUserTableDatabase();
+    final Database db = await _creatingUserTableInDatabase();
     await db.delete(
       'entering',
       where: "id = ?",
       whereArgs: [id],
     );
   }
-
+//AddLoctionOrRestrauntToTableOfLoctions
   Future<int> inserloc(Map<String, dynamic> row) async {
-    Database db =  await _initResTableDatabase();
+    Database db =  await _creatingResTableDatabase();
     return await db.insert(_locTABLE, row,
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
-
+//AddItemToFavoriteTable
   Future<int> addToFav(favRes) async {
     int result = 0;
-    final Database db = await _initUserTableDatabase();
+    final Database db = await _creatingUserTableInDatabase();
     result = await db.insert('Fav', favRes.toMap());
     return result;
   }
-
+//removeItemToFavoriteTable
   removeFromFav (int id) async {
-    final Database db = await _initUserTableDatabase();
+    final Database db = await _creatingUserTableInDatabase();
     await db.delete(
       'Fav',
       where: "id = ?",

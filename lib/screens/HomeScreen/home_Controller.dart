@@ -12,7 +12,7 @@ class Home_controller extends GetxController{
   }
   void fetchGovernments() async {
     loading = true;
-    var govs = await RestrauntService.getCategories();
+    var govs = await RestrauntService.getRestrauntsData();
     govList = govs ?? [];
     loading = false;
     update();

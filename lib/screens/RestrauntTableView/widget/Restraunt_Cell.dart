@@ -18,7 +18,9 @@ class RestrauntCell extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(
             vertical: 7.0, horizontal: 16),
-        child: Stack(clipBehavior: Clip.none, children: [
+        child: Stack(
+            clipBehavior: Clip.none,
+            children: [
           Container(
             width: Get.width*0.95,
             decoration: BoxDecoration(

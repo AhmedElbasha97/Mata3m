@@ -75,7 +75,6 @@ class _HomeScreenState extends State<HomeScreen> {
     "Suez Governorate",
   ];
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
 
     return Scaffold(
       bottomNavigationBar: BottomNavBar(index: 0,),
