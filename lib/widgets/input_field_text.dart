@@ -31,6 +31,8 @@ class CustomInputfield extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return TextFormField(
+      enableSuggestions: false,
+      autocorrect: false,
       cursorColor: theme.colorScheme.onSurface,
       obscureText: obsecure,
       decoration: InputDecoration(

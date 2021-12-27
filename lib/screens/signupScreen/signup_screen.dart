@@ -39,6 +39,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                           SizedBox(height: 75),
                           CustomInputfield(
+                            keyboardType: TextInputType.visiblePassword,
                             onchange: controller.onNameupdate,
                             labelText: "Name",
                             controller: controller.nameController,
@@ -56,6 +57,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           SizedBox(height: 8),
 
                           CustomInputfield(
+                            keyboardType: TextInputType.visiblePassword,
                             onchange: controller.onEmailUpdate,
                             labelText: "Email",
                             controller: controller.emailController,
@@ -72,6 +74,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                           SizedBox(height: 8),
                           CustomInputfield(
+
                               labelText: "Password",
                               controller: controller.passwordController,
                               validator: controller.validatePassword,

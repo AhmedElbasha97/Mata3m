@@ -36,6 +36,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 75),
                           CustomInputfield(
+                            keyboardType: TextInputType.visiblePassword,
                             onchange: controller.onUpdate,
                             labelText: "Email",
                             controller: controller.emailController,
