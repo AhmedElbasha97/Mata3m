@@ -39,6 +39,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                           CustomInputfield(
                             onchange: controller.onUpdate,
                             labelText: "Email",
+                            keyboardType: TextInputType.visiblePassword,
                             controller: controller.emailController,
                             validator: controller.validateEmail,
                             validated: controller.emailValidated,
