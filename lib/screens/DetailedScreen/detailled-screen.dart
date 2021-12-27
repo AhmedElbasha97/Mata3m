@@ -150,7 +150,7 @@ class _DetailedScreenState extends State<DetailedScreen> {
                               width: Get.width * 0.3,
                               backgroundColor: kPrimaryColor,
                               onPressed: () async {
-                                bool res = await FlutterPhoneDirectCaller
+                                bool _ = await FlutterPhoneDirectCaller
                                     .callNumber(widget.Restraunt.phoneNumber
                                     .removeAllWhitespace) ?? true;
                               },

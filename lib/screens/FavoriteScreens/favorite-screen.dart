@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:mata3m/models/location_model.dart';
 import 'package:mata3m/screens/RestrauntTableView/widget/Restraunt_Cell.dart';
@@ -19,7 +18,6 @@ class FavoriteScreen extends StatefulWidget {
 class _FavoriteScreen extends State<FavoriteScreen> {
   final favoriteScreenController cont =favoriteScreenController();
 
-  @override
   final isGrid = false;
 
   Widget build(BuildContext context) {

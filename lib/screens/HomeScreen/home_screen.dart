@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
   final arrOfLoc=[
     "It is located in the northern part of the country, ",
     "The Aswan Governorate borders Qena to the north, ",
@@ -45,35 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
     "located in the east of the country",
     "is located in the north-eastern part of the country",
   ];
-  final arrOfGov=[
-    "Alexandria Governorate",
-    "Aswan Governorate",
-    "Asyut Governorate",
-    "Beheira Governorate",
-    "Beni Suef Governorate",
-    "Cairo Governorate",
-    "Dakahlia Governorate",
-    "Damietta Governorate",
-    "Faiyum Governorate",
-    "Gharbia Governorate",
-    "Giza Governorate",
-   " Ismailia Governorate",
-    "Kafr El Sheikh Governorate",
-    "Luxor Governorate",
-    "Matruh Governorate",
-    "Minya Governorate",
-    "Monufia Governorate",
-    "New Valley Governorate",
-    "North Sinai Governorate",
-    "Port Said Governorate",
-    "Qalyubia Governorate",
-    "Qena Governorate",
-    "Red Sea Governorate",
-    "Sharqia Governorate",
-    "Sohag Governorate",
-    "South Sinai Governorate",
-    "Suez Governorate",
-  ];
+
   Widget build(BuildContext context) {
 
     return Scaffold(

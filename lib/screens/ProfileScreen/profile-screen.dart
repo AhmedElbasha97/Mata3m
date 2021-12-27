@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mata3m/screens/ProfileScreen/profile_controller.dart';
-import 'package:mata3m/screens/signupScreen/signup_screen.dart';
 import 'package:mata3m/utils/colors.dart';
 import 'package:mata3m/utils/utils.dart';
 import 'package:mata3m/widgets/app_bar.dart';

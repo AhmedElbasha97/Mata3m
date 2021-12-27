@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mata3m/Services/auth_services.dart';
-import 'package:mata3m/screens/loginScreen/login_screen.dart';
 import 'package:mata3m/screens/signupScreen/signup_helper.dart';
 import 'package:mata3m/utils/translation_key.dart';
 

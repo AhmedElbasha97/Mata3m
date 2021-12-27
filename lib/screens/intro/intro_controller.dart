@@ -5,8 +5,6 @@ import 'package:mata3m/Services/auth_services.dart';
 import 'package:mata3m/utils/services/app_routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class introController extends GetxController{
-  @override
-
   final AuthService sinning = AuthService(FirebaseAuth.instance);
   void onInit() {
     checkFirstSeen();

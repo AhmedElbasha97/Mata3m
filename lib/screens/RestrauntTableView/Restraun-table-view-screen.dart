@@ -15,9 +15,6 @@ class RestrauntTableViewScreen extends StatefulWidget {
 }
 
 class _RestrauntTableViewScreen extends State<RestrauntTableViewScreen> {
-  @override
-
-
   final isGrid = false;
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

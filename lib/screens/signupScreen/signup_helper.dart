@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:mata3m/utils/translation_key.dart';
 
 class SignupHelper {
