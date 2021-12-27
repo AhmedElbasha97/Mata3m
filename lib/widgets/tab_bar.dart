@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mata3m/screens/FavoriteScreens/favorite-screen.dart';
-import 'package:mata3m/screens/HomeScreen/home_screen.dart';
-import 'package:mata3m/screens/ProfileScreen/profile-screen.dart';
 import 'package:mata3m/utils/colors.dart';
 import 'package:mata3m/utils/services/app_routes.dart';
 

@@ -7,13 +7,15 @@ class DetailedScreenController extends GetxController {
   final id;
   var notDetect = false;
   var loaded ;
+
   DetailedScreenController(this.id);
+
   Future<void> onInit() async {
     detectAddedToFavorite(id);
     super.onInit();
   }
+
   addToFavorite(City restrunt){
-    print("elmat3am ${restrunt}");
     fav.addRestrauntToFavorite(restrunt);
     detectAddedToFavorite(restrunt.id);
   }

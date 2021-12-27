@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mata3m/screens/intro/introScreen.dart';
 import 'package:mata3m/utils/colors.dart';
 
@@ -6,10 +7,11 @@ class Blank404 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color.fromRGBO(255, 255, 255, 1),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/404.png'),
+            Image.asset('assets/images/404 Error Page not Found with people connecting a plug (2).gif'),
             Padding(
               padding: const EdgeInsets.only(bottom: 15.0),
               child: Text(
@@ -23,11 +25,10 @@ class Blank404 extends StatelessWidget {
               child: ElevatedButton(
                 child: Text(
                   'Refresh',
-                  style: TextStyle(fontSize: 18.0),
+                  style: TextStyle(fontSize: 18.0,color: Colors.white),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                      new MaterialPageRoute(builder: (context) => new Intro()));
+                 Get.to(Intro());
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 3.0,
