@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mata3m/screens/intro/introScreen.dart';
 import 'package:mata3m/utils/colors.dart';
+import 'package:mata3m/utils/services/app_routes.dart';
 
 class Blank404 extends StatelessWidget {
   @override
@@ -28,7 +28,7 @@ class Blank404 extends StatelessWidget {
                   style: TextStyle(fontSize: 18.0,color: Colors.white),
                 ),
                 onPressed: () {
-                 Get.to(Intro());
+                  Get.offAndToNamed(AppRoutes.initialRoute);
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 3.0,

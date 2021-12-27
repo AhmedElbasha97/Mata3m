@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart' hide Response, FormData;
+import 'package:mata3m/utils/services/app_routes.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../translation_key.dart';
 
@@ -71,13 +72,15 @@ class ApiService extends GetxService {
     } catch (e) {
       print("Error: $e");
       if (errorDialog == null && errorMessage == null) {
+
         await Get.defaultDialog(
           title: error.tr,
           //titlePadding: EdgeInsets.zero,
           //contentPadding: EdgeInsets.symmetric(horizontal: 10),
-          content: Text("ERROR_HAPPENED".tr),
+          content: Text("No Internet Connection"),
           middleText: "",
         );
+        Get.offAllNamed(AppRoutes.initialRoute);
       }
       if (errorDialog != null) {
         await errorDialog(e.toString());

@@ -1,7 +1,10 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:get/get.dart';
 import 'package:mata3m/models/fav_model.dart';
 import 'package:mata3m/models/location_model.dart';
 import 'package:mata3m/utils/services/api_service.dart';
+import 'package:mata3m/utils/services/app_routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class favoriteServices{
@@ -16,6 +19,10 @@ class favoriteServices{
   }
 
    checkIfThereIsFavoritesToTHisUser() async {
+     var connectivityResult = await (Connectivity().checkConnectivity());
+     if (connectivityResult == ConnectivityResult.none) {
+       Get.offAllNamed(AppRoutes.initialRoute);
+     }
      final user = await getUserIdFromCach();
      var data = await ref.child(user).once();
      return data.value;

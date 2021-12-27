@@ -58,7 +58,7 @@ class AuthService {
               .signInWithEmailAndPassword(email: email, password: password);
           final userid = userCredential.user!.uid;
           addUserIdToCach(userid);
-          Get.offAndToNamed(
+          Get.offAllNamed(
               AppRoutes.homeScreen
           );
           return "Signd in";
@@ -94,7 +94,7 @@ class AuthService {
               final userid = userCredential.user!.uid;
               addUserIdToCach(userid);
               safeUserDataToUserTable(email, userid, password, username);
-              Get.offAndToNamed(
+              Get.offAllNamed(
                   AppRoutes.homeScreen
               );} on FirebaseAuthException catch (e) {
               if (e.code == 'weak-password') {
@@ -136,6 +136,6 @@ class AuthService {
   void signOut() async {
     await _auth.signOut();
     await removeUserIdFromCach();
-    Get.offAndToNamed(AppRoutes.StartScreen);
+    Get.offAllNamed(AppRoutes.StartScreen);
   }
 }
