@@ -39,7 +39,7 @@ class AuthService {
           content: Text(message),
           actions: <Widget>[
             // ignore: deprecated_member_use
-            FlatButton(
+            TextButton(
               child: Text('OK'),
               onPressed: () {
                 Navigator.of(dialogContext).pop();

@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:mata3m/Services/favorite_services.dart';
 import 'package:mata3m/models/location_model.dart';
@@ -21,9 +22,9 @@ class DetailedScreenController extends GetxController {
   }
 
   detectAddedToFavorite(restrauntId) async {
-    var detect = await fav.detectRestrauntsAddToFavorite(restrauntId);
-    print(detect);
-    if( detect != null){
+    DatabaseEvent detect = await fav.detectRestrauntsAddToFavorite(restrauntId);
+
+    if( detect.snapshot.value != null){
       notDetect = false;
     }else{
       notDetect=true;

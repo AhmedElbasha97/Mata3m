@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart' hide Response, FormData;
+import 'package:get_storage/get_storage.dart';
 import 'package:mata3m/utils/services/app_routes.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../translation_key.dart';
@@ -18,8 +19,8 @@ class ApiService extends GetxService {
 
   void init() {
     dio.options.baseUrl = "https://mata3m-7e2be-default-rtdb.firebaseio.com";
-    dio.options.connectTimeout = 60000;
-    dio.options.receiveTimeout = 60000;
+    dio.options.connectTimeout = Duration(seconds: 6000);
+    dio.options.receiveTimeout = Duration(seconds: 6000);
     dio.interceptors.add(PrettyDioLogger(
       requestHeader: true,
       requestBody: true,
@@ -39,6 +40,7 @@ class ApiService extends GetxService {
     Function(String? successMsg)? onSuccess,
     Function(String errorMsg)? errorMessage,
   }) async {
+    print("https://mata3m-7e2be-default-rtdb.firebaseio.com" + endPoint);
     try {
       // var headers = {
       //   "Authorization": "Bearer ${"Get.find<StorageService>().token"}",

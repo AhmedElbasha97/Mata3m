@@ -24,37 +24,42 @@ class _RestrauntTableViewScreen extends State<RestrauntTableViewScreen> {
       appBar: const AppBarWidget(color: kWhiteColor,hasBackButton: true,title: "Restraunt",),
       backgroundColor: kDarkWhiteColor,
       body: Center(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Image.network(widget.restraunts.image??"",width: double.infinity,height: Get.height*0.29,fit: BoxFit.fill,),
+          child: SizedBox(
+            height: Get.height,
+            width: Get.width,
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    Image.network(widget.restraunts.image??"",width: double.infinity,height: Get.height*0.29,fit: BoxFit.fill,),
 
-                  Positioned(
-                    right: 0.0,
-                    bottom: 0.0,
-                    child:Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    Positioned(
+                      right: 0.0,
+                      bottom: 0.0,
+                      child:Padding(
+                        padding: const EdgeInsets.all(8.0),
 
-                      child: Text(
-                        widget.restraunts.gov??"",
-                        textAlign: TextAlign.left,
-                        style:extend(theme.textTheme.headline3??TextStyle(), const TextStyle(color: kWhiteColor)),
-                      ),
-                    ), ),
-                ],
-              ),
-              Container(
-                height: Get.height*0.5,
-                child: ListView.builder(
-                  itemCount: widget.restraunts.city!.length,
-                  itemBuilder:
-                      (BuildContext context, int index) {
-                        return RestrauntCell(restraunt: widget.restraunts.city![index], ComingFromFav: false,);
-                  },
+                        child: Text(
+                          widget.restraunts.gov??"",
+                          textAlign: TextAlign.left,
+                          style:extend(theme.textTheme.headline3??TextStyle(), const TextStyle(color: kWhiteColor)),
+                        ),
+                      ), ),
+                  ],
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: Get.height*0.49,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: widget.restraunts.city!.length,
+                    itemBuilder:
+                        (BuildContext context, int index) {
+                          return RestrauntCell(restraunt: widget.restraunts.city![index], ComingFromFav: false,);
+                    },
+                  ),
+                ),
+              ],
+            ),
           )) ,
 
 

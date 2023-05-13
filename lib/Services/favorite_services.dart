@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:mata3m/models/fav_model.dart';
 import 'package:mata3m/models/location_model.dart';
 import 'package:mata3m/utils/services/api_service.dart';
@@ -25,7 +26,7 @@ class favoriteServices{
      }
      final user = await getUserIdFromCach();
      var data = await ref.child(user).once();
-     return data.value;
+     return data;
    }
 
   Future<void> addRestrauntToFavorite(City restraunt) async {
@@ -48,8 +49,9 @@ class favoriteServices{
 
   detectRestrauntsAddToFavorite(restrauntId) async {
     final user = await getUserIdFromCach();
-    var data = await ref.child(user).child(restrauntId).once();
-   return data.value;
+    DatabaseEvent data = await ref.child(user).child(restrauntId).once();
+    print(data);
+   return data;
   }
 
    getFavoriteIDArray(){
@@ -63,6 +65,7 @@ class favoriteServices{
    getFavoriteData() async {
      var userId = await getUserIdFromCach();
      var data = await api.request("/Favorite/${userId}.json", "GET");
+
      if (data != []) {
        List<Favorite> favs = [];
        data.keys.forEach((element) {
