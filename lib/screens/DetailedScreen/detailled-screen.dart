@@ -3,6 +3,7 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:get/get.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:mata3m/models/location_model.dart';
+import 'package:mata3m/screens/DetailedScreen/widget/alert_adding_order.dart';
 import 'package:mata3m/utils/colors.dart';
 import 'package:mata3m/utils/utils.dart';
 import 'package:mata3m/widgets/app_bar.dart';
@@ -207,7 +208,7 @@ class _DetailedScreenState extends State<DetailedScreen> {
                         ),
                         SizedBox(height: 15,),
                         Text("Menu:", style: extend(theme.textTheme.headline5 ??
-                            TextStyle(), const TextStyle(color: kBlackColor)),),
+                        TextStyle(), const TextStyle(color: kBlackColor)),),
                         SizedBox(height: 15,),
                         widget.Restraunt.menu![0] == " " ? Container(
                           height: Get.height * 0.3,
@@ -265,6 +266,19 @@ class _DetailedScreenState extends State<DetailedScreen> {
                           width: Get.width * 0.95,
                           backgroundColor: kPrimaryColor,
                           onPressed: () async {controller.notDetect?controller.addToFavorite(widget.Restraunt):controller.removeFromId(widget.Restraunt.id);},
+                          textColor: kWhiteColor,),
+                        SizedBox(height: 10,),
+                        RoundedCornerButton(borderRadius: 25.0,
+                          title: "send order",
+
+                          hasBorder: true,
+                          height: 48,
+                          width: Get.width * 0.95,
+                          backgroundColor: kPrimaryColor,
+                          onPressed: () async { showDialog(context: context,
+                            builder: (context) =>
+                             CustomDateDialogue(id: widget.Restraunt.id,),
+                          );},
                           textColor: kWhiteColor,)
                       ],
                     ),

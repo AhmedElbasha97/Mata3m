@@ -32,6 +32,7 @@ class DetailedScreenController extends GetxController {
     update();
   }
 
+  
   removeFromId(restrauntId) async {
    await fav.removeRestrauntFromFavorite(restrauntId);
     detectAddedToFavorite(restrauntId);
